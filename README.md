@@ -1,32 +1,54 @@
-# UrbanRunoff IQ: Precision Urban Hydrology & Stormwater Analytics
+# UrbanRunoff IQ: A Cloud-Native Framework for Precision Urban Hydrology
 
-**UrbanRunoff IQ** is a cloud-native geospatial platform built on Google Earth Engine (GEE) to model and visualize urban runoff potential and stormwater risks at high resolution. Developed as part of a research framework for climate-resilient urban design and Water-Sensitive Urban Design (WSUD).
+**UrbanRunoff IQ** is an advanced Google Earth Engine (GEE) platform designed for the high-resolution assessment of urban stormwater risks and runoff dynamics. This framework leverages multi-sensor satellite data fusion to bridge the gap between meteorological precipitation and surface hydrological response in complex urban environments.
 
 🚀 **[Live App Link](https://drubopaulresearch.projects.earthengine.app/view/urbanrunoff-iq)**
 
 ---
 
-## 🌟 Key Features
+## 🔬 Scientific Methodology
 
-- **Runoff Potential Index (RPI)**: A dynamic analytical framework integrating land cover (Sentinel-2), topographic slope (NASADEM), and real-time precipitation (CHIRPS).
-- **Smart Chunking Architecture**: Scalable tiling logic engineered to overcome GEE memory limits for 10m high-resolution analytic downloads.
-- **Dual-Map Analytics**: Comparative split-panel interface for side-by-side analysis of risk maps vs. satellite imagery.
-- **Watershed-Level Insights**: Integration of FAO GAUL administrative boundaries for localized hydrological reporting.
+The platform is built on the premise that urban runoff is a function of land-surface morphology, anthropogenic modification, and precipitation intensity.
 
-## 🛠️ Technical Stack
+### 1. Runoff Potential Index (RPI) Formulation
+The core analytical output is the **Runoff Potential Index (RPI)**, derived from three primary physical drivers:
+- **Impervious Surface Intensity (ISI)**: Extracted from multi-temporal Sentinel-2 imagery (Boreal-summer composites) using spectral indices (NDVI/NDBI) to quantify non-absorbing surfaces.
+- **Topographic Slope ($\theta$)**: Calculated from NASADEM (30m, resampled to 10m) to determine gravitational flow velocity.
+- **Precipitation Forcing ($P$)**: Real-time and archival precipitation data from CHIRPS and ERA5-Land to identify "hydro-meteorological stress" zones.
 
-- **Platform**: Google Earth Engine (GEE)
-- **API**: JavaScript
-- **Data Fusion**: Multi-sensor integration of Optical (Sentinel-2), Topographic (NASADEM), and Meteorological (CHIRPS/ERA5) data.
+$$RPI = f(ISI, \theta, P)$$
 
-## 📁 Repository Structure
-
-- `/scripts`: Core Google Earth Engine JavaScript source code.
-- `/docs`: Documentation and research methodology.
-
-## 🎓 Research Context
-
-This project was developed by **Drubo Paul** to demonstrate technical preparedness for PhD research in urban hydrology and nature-based stormwater management.
+### 2. Multi-Sensor Data Fusion
+UrbanRunoff IQ integrates distinct satellite constellations to provide a comprehensive hydrological picture:
+- **Optical (Sentinel-2)**: High-resolution (10m) LULC and urban morphology mapping.
+- **Topographic (NASADEM)**: High-accuracy elevation data for hydrological flow accumulation analysis.
+- **Meteorological (CHIRPS/ERA5)**: Spatiotemporal rainfall distribution and cumulative stress metrics.
 
 ---
-© 2026 Drubo Paul. All rights reserved.
+
+## 🛠️ Technical Innovations
+
+### Scalable "Smart Chunking" Tiling Logic
+Traditional GEE applications often fail when processing high-resolution (10m) data over large metropolitan areas due to memory constraints (`User Memory Limit Exceeded`). 
+**UrbanRunoff IQ** implements a custom **Recursive Tiling Architecture** that:
+1. Dynamically divides the viewport into a 16-tile grid.
+2. Synchronizes data requests across tiles to maintain seamless visualization.
+3. Enables high-fidelity (10m) analytic exports that are otherwise impossible on the standard GEE client.
+
+---
+
+## 📖 Application in WSUD & Green Infrastructure
+This tool is designed to support **Water-Sensitive Urban Design (WSUD)** and **Nature-Based Solutions (NBS)** by:
+- **Critical Node Identification**: Locating "Drainage Critical Points" where high RPI values overlap with steep terrain and intense rainfall.
+- **Placement Optimization**: Providing evidence-based justifications for the placement of retention basins, bioswales, and green roofs in Australian coastal cities.
+
+---
+
+## 🎓 About the Researcher
+Developed by **Drubo Paul** (Geospatial Data Scientist, IWM) as a technical demonstration of preparedness for PhD research at the **University of Queensland (UQ)**.
+
+- **Portfolio**: [drubo-portfolio.vercel.app](https://drubo-portfolio.vercel.app)
+- **Email**: [pdrubo064@gmail.com](mailto:pdrubo064@gmail.com)
+
+---
+*Disclaimer: This platform is for research and demonstration purposes. Cross-validation with ground-truth radar (Sentinel-1) data is recommended for emergency response.*
