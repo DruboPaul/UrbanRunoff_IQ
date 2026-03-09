@@ -139,8 +139,10 @@ function refreshApp() {
 
     panel.add(ui.Label('Map Legend:', { fontWeight: 'bold', margin: '15px 0 5px 0' }));
     var makeRow = function (color, name) {
-        return ui.Panel([ui.Label('', { backgroundColor: color, padding: '8px', border: '1px solid black' }),
-        ui.Label(name, { margin: '0 0 0 10px', fontSize: '12px' })], ui.Panel.Layout.flow('horizontal'));
+        return ui.Panel([
+            ui.Label('\u00A0\u00A0\u00A0\u00A0', { backgroundColor: color, padding: '8px', border: '1px solid black', margin: '0 0 4px 0' }),
+            ui.Label(name, { margin: '8px 0 4px 10px', fontSize: '13px' })
+        ], ui.Panel.Layout.flow('horizontal'));
     };
     panel.add(makeRow('#FF0000', 'Critical Runoff (High Risk)'));
     panel.add(makeRow('#FFFF00', 'Moderate Flow'));
