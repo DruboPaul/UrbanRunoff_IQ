@@ -2,7 +2,7 @@
 
 **UrbanRunoff IQ** is an advanced Google Earth Engine (GEE) platform designed for the high-resolution assessment of urban stormwater risks and runoff dynamics. This framework leverages multi-sensor satellite data fusion to bridge the gap between meteorological precipitation and surface hydrological response in complex urban environments.
 
-🚀 **[Live App Link](https://drubopaulresearch.projects.earthengine.app/view/urbanrunoff-iq)**
+🚀 **[Live App Link](https://my-project-001-470308.projects.earthengine.app/view/urbanrunoff-iq)**
 
 ---
 
