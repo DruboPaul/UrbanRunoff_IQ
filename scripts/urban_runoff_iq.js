@@ -101,6 +101,8 @@ function refreshApp() {
     panel.clear();
     leftMap.layers().reset();
     rightMap.layers().reset();
+    leftMap.widgets().clear();
+    rightMap.widgets().clear();
 
     panel.add(ui.Label('UrbanRunoff IQ', { fontSize: '24px', fontWeight: 'bold', color: '#1a73e8' }));
     panel.add(ui.Label('Multi-Evidence Urban Hydrology Analytics', { fontSize: '14px', fontStyle: 'italic' }));
